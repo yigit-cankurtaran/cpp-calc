@@ -12,6 +12,8 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
+    // window title, x position, y position, x size, y size, display window
+    // CreateWindow returns a pointer
     SDL_Window *window = SDL_CreateWindow(
         "calculator", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 400, 600, SDL_WINDOW_SHOWN);
 
@@ -47,6 +49,21 @@ int main(int argc, char const *argv[])
         // black screen
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+
+        // buttons
+
+        // renderer, gray (100 on rgb each), 255 opacity
+        SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
+
+        // button placement x, button placement y, button xlen, button ylen
+
+        SDL_Rect button1 = {50, 200, 80, 80};
+        SDL_Rect button2 = {150, 200, 80, 80};
+        SDL_Rect button3 = {250, 200, 80, 80};
+
+        SDL_RenderFillRect(renderer, &button1);
+        SDL_RenderFillRect(renderer, &button2);
+        SDL_RenderFillRect(renderer, &button3);
 
         SDL_RenderPresent(renderer);
     }
